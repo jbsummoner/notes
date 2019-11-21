@@ -6,7 +6,13 @@
     - [resource component](#resource-component)
       - [example](#example)
   - [context](#context)
+    - [set-up](#set-up)
+    - [provider](#provider)
+    - [consumer](#consumer)
+      - [first way](#first-way)
+      - [second way](#second-way)
     - [Global State component](#global-state-component)
+      - [usage](#usage)
   - [hooks](#hooks)
     - [custom hooks](#custom-hooks)
       - [http](#http)
@@ -23,6 +29,8 @@
       - [examples](#examples-2)
         - [component did mount + did mount + will mount](#component-did-mount--did-mount--will-mount)
           - [updating state](#updating-state-1)
+
+***
 
 ## architecure
 
@@ -75,11 +83,11 @@ render={data => {
 />
 ```
 
----
+***
 
 ## context
 
-**set-up**
+### set-up
 
 ```javascript
 // context/shop.context.js
@@ -100,7 +108,7 @@ export default createContext(
 );
 ```
 
-**provider**
+### provider
 
 ```javascript
 // context/shop.context.js
@@ -124,9 +132,9 @@ import ShopContext from './context/shop-context';
 // ...
 ```
 
-**consumer**
+### consumer
 
-**first way**
+#### first way
 
 ```javascript
 //  ####################
@@ -166,9 +174,8 @@ import ShopContext from './context/shop-context';
     );
 // ...
 ```
-**consumer**
 
-**second way**
+#### second way
 
 ```javascript
 //  ####################
@@ -217,6 +224,8 @@ class CartPage extends Component {
 }
 // ...
 ```
+
+***
 
 ### Global State component
 
@@ -304,7 +313,7 @@ export default class GlobalState extends Component {
 
 ```
 
-**usage**
+#### usage
 
 ```javascript
 // ...
@@ -328,7 +337,7 @@ class App extends Component {
 export default App;
 ```
 
----
+***
 
 ## hooks
 
@@ -365,6 +374,8 @@ export const useHttp = (url, dependencies) => {
 };
 ```
 
+***
+
 #### useHttp
 ```javascript
 const [isLoading, fetchData] = useHttp('https://swapi.co/api/people', []);
@@ -392,6 +403,8 @@ export default React.memo(CharPicker, (prevProps, nextProps) => {
 });
 ```
 
+***
+
 ### useEffect
 
 #### examples
@@ -411,6 +424,8 @@ const [state, setState] = useState({
 ```javascript
 setState({ ...state, side: side });
 ```
+
+***
 
 ### useMemo
 
@@ -485,12 +500,18 @@ export const Count = React.memo(({ onOdd }) => {
 });
 
 ```
+
+***
+
 ### useReducer
+
 - reducers file @  context/reducers
   
 ```javascript
 
 ```
+
+***
 
 ### useState 
 
